@@ -1,0 +1,74 @@
+<aura:component controller="CRIT_DirectorySearchComponent" implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global">
+	  <ltng:require styles="/resource/SLDS0122/assets/styles/salesforce-lightning-design-system-ltng.css"/>
+
+	  <aura:attribute name="spinnerOverlay" type="boolean" default="false" />
+
+	  <aura:attribute name="nameSearch" type="String" default="" />
+	  <aura:attribute name="phoneSearch" type="String" default="" />
+	  <aura:attribute name="emailSearch" type="String" default="" />
+	  <aura:attribute name="deptSearch" type="String" default="" />
+	  <aura:attribute name="titleSearch" type="String" default="" />
+	  <aura:attribute name="foundContacts" type="Contact[]" />
+
+	  <div class="slds">
+	  	<div class="slds-grid">
+		
+			<div aura:id="searchPane" class="slds-size--2-of-12">
+		    	<h2>Search Fields</h2>
+		    	<ui:inputText label="Name" change="{! c.handleSearchChange }" value="{! v.nameSearch }"></ui:inputText>
+		    	<ui:inputText label="Dept" change="{! c.handleSearchChange }" value="{! v.deptSearch }"></ui:inputText>
+		    	<ui:inputPhone label="Phone" change="{! c.handleSearchChange }" value="{! v.phoneSearch }"></ui:inputPhone>
+		    	<ui:inputText label="Title" change="{! c.handleSearchChange }" value="{! v.titleSearch }"></ui:inputText>
+		    	<ui:inputEmail label="Email" change="{! c.handleSearchChange }" value="{! v.emailSearch }"></ui:inputEmail>
+
+		    </div>
+
+
+
+
+
+		<div aura:id="directoryResults" class="slds-size--9-of-12">
+	    	<aura:if isTrue="{! v.spinnerOverlay }">
+	    	<div class="spinnerOverlay" style="position:absolute;width:100%;left:0px;height:100%;top:0px;background-color:#cccccc;opacity: 0.4;">
+			<div style="position:absolute;top:20%;width:100%;">
+    		   <center><ui:spinner aura:id="spinner"/></center>
+    		</div>
+	    	</div>
+	    </aura:if>
+	    
+
+
+	    <ui:outputText value="Contacts" />
+
+	    <table class="slds-table slds-table--bordered critTable" >
+	    		<tr>
+	    			<th class="slds-is-sortable" scope="col">Name
+					<c:svgIcon svgPath="/resource/SLDS0122/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" category="utility" size="small" name="arrowdown" />
+
+	    			</th>
+	    			<th class="slds-is-sortable" scope="col">Phone</th>
+	    			<th class="slds-is-sortable" scope="col">Email</th>
+	    			<th class="slds-is-sortable" scope="col">Dept</th>
+	    			<th class="slds-is-sortable slds-cell-shrink" scope="col">Title</th>
+	    		</tr>
+	    		<aura:iteration var="contact" items="{! v.foundContacts }">
+	    		<tr>
+	    			<td>{! contact.Name }</td>
+	    			<td><ui:outputPhone value="{! contact.Phone }" /></td>
+	    			<td><ui:outputEmail value="{! contact.Email }"/></td>
+	    			<td>{! contact.Department }</td>
+	    			<td>{! contact.Title }</td>
+	    		</tr>
+	    		</aura:iteration>
+	    	</table>
+	    </div>
+	    
+	    
+	    
+	    
+	</div>
+
+
+
+    </div>
+</aura:component>
