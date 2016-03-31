@@ -17,6 +17,14 @@
 		{
 			component.set("v.foundContacts", []);
 		}
+	},
+	handleHeaderClick : function(component, event, helper)
+	{
+		sortName = event.target.value;
+		console.log("sort name:" + sortName);
+		helper.handleSortChange(component, sortName);
+
+		helper.doSearch(component, event, helper);
 	}
-	
-})
+
+});
