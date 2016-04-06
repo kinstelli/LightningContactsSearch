@@ -61,7 +61,7 @@ public with sharing class CRIT_DirectorySearchComponent {
                     }
                     if (searchFields.get(key) == 'Phone')
                     {
-                        orderField = 'Phone';
+                        orderField = 'DirectoryWorkPhone__c';
                     }
                     if (searchFields.get(key) == 'Dept')
                     {

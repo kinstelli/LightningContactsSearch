@@ -18,6 +18,24 @@
 
 }
 
+.THIS .spinnerOverlay
+{
+	position:absolute;
+	width:100%;
+	left:0px;
+	height:100%;
+	top:0px;
+	background-color:#cccccc;
+	opacity: 0.4;
+}
+
+.THIS .spinnerGraphic
+{
+	position:absolute;
+	top:60%;
+	width:100%;
+}
+
 
 /* ----------------------- Media Query for Small Devices ------------------- */
 @media screen and (max-width: 400px), only screen and (max-device-width: 400px) 
