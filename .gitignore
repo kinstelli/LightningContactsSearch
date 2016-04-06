@@ -1,5 +1,13 @@
-config
+.DS_Store
+.gitignore*
+.gitignore
 *.sublime-project
 *.sublime-workspace
+aux
+config
 debug
-.gitignore*
+e2econf.js
+gulpfile.js
+nightwatch.json
+node_modules
+package.json

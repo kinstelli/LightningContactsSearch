@@ -88,7 +88,7 @@ public with sharing class CRIT_DirectorySearchComponent {
                 }
             } 
         String orderByClause = ' ORDER BY ' + orderField + orderDirection;
-        String queryString = 'SELECT Name, Phone, Email, Title, Department FROM Contact ' +  whereClause + ' AND IsActiveEmployee__c = true ' + orderByClause;
+        String queryString = 'SELECT Name, Phone, DirectoryPublicPhone__c, DirectoryWorkPhone__c, Email, Title, Department FROM Contact ' +  whereClause + ' AND IsActiveEmployee__c = true ' + orderByClause;
         return queryString;
     }
 }

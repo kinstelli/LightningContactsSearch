@@ -47,6 +47,23 @@
         }else{
             component.set("v.sortBy", sortName);
         }
+    },
+    validateMinimalSearchCriteria: function(component)
+    {
+        //debugger;
+        var nameSearchVal = component.get('v.nameSearch');
+        var phoneSearchVal =  component.get('v.phoneSearch');
+        var emailSearchVal =  component.get('v.emailSearch');
+        var deptSearchVal =  component.get('v.deptSearch');
+        var titleSearchVal =  component.get('v.titleSearch');
+
+        var lengthOfAll = (nameSearchVal.length + phoneSearchVal.length  +  emailSearchVal.length + deptSearchVal.length +  titleSearchVal.length);
+        //TODO: this is *one* way to limit searches. Not sure if it's the best way
+        if (lengthOfAll > 2)
+        {
+            return true;
+        }
+        return false;
     }
 
 })

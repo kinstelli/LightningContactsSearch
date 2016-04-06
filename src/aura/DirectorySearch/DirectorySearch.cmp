@@ -88,7 +88,7 @@
 	    		<aura:iteration var="contact" items="{! v.foundContacts }">
 	    		<tr>
 	    			<td>{! contact.Name }</td>
-	    			<td><a href="{! 'tel:' + contact.Phone }"><ui:outputPhone value="{! contact.Phone }" /></a></td>
+	    			<td><a href="{! 'tel:' + (contact.DirectoryPublicPhone__c != '' ? contact.DirectoryPublicPhone__c : contact.DirectoryWorkPhone__c ) }"><ui:outputPhone value="{! contact.Phone }" /></a></td>
 	    			<td><ui:outputEmail value="{! contact.Email }"/></td>
 	    			<td>{! contact.Department }</td>
 	    			<td>{! contact.Title }</td>
